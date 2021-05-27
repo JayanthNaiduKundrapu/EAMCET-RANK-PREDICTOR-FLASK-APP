@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}
+	Result Page
+{% endblock %}
+
+{% block content %}
+	<style>
+		table {
+  			font-family: arial, sans-serif;
+  			border-collapse: collapse;
+  			width: 100%;
+			}
+
+		td, th {
+  			border: 1px solid #dddddd;
+  			text-align: left;
+  			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+  			background-color: #dddddd;
+		}
+	</style>
+	</br>
+	</br>
+	<table style=border="1">
+		<tr>
+    		<th>INSTITUTION CODE</th>
+    		<th>INSTITUTION NAME</th>
+    		<th>REGION</th>
+			<th>DISTRICT</th>
+			<th>PLACE</th>
+			<th>EDUCATIONAL ENVIRONMENT</th>
+			<th>AFFILIATION</th>
+			<th>BRANCH</th>
+		</tr>
+
+        {% for item in data %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+			<td>{{ item[3] }}</td>
+			<td>{{ item[4] }}</td>
+			<td>{{ item[5] }}</td>
+			<td>{{ item[6] }}</td>
+			<td>{{ item[7] }}</td>
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}
+

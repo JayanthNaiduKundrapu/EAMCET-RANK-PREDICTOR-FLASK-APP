@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% block title %}
+	FAQs Page
+{% endblock %}
+
+{% block content %}
+</br>
+
+<h2><i>Frequently Asked Questions</i></h2>
+</br>
+<script>
+	var ButtonExpand = function (domNode) {
+
+  			this.domNode = domNode;
+			this.keyCode = Object.freeze({
+    				'RETURN': 13
+ 			 });
+	};
+
+	ButtonExpand.prototype.init = function () {
+
+  	this.controlledNode = false;
+
+  	var id = this.domNode.getAttribute('aria-controls');
+
+  	if (id) {
+  	  this.controlledNode = document.getElementById(id);
+  	}
+
+  	this.domNode.setAttribute('aria-expanded', 'false');
+  	this.hideContent();
+
+  	this.domNode.addEventListener('keydown',    this.handleKeydown.bind(this));
+  	this.domNode.addEventListener('click',      this.handleClick.bind(this));
+  	this.domNode.addEventListener('focus',      this.handleFocus.bind(this));
+  	this.domNode.addEventListener('blur',       this.handleBlur.bind(this));
+
+	};
+
+	ButtonExpand.prototype.showContent = function () {
+
+ 	 if (this.controlledNode) {
+    	this.controlledNode.style.display = 'block';
+  	}
+
+	};
+
+	ButtonExpand.prototype.hideContent = function () {
+
+  	if (this.controlledNode) {
+    	this.controlledNode.style.display = 'none';
+  	}
+
+	};
+
+	ButtonExpand.prototype.toggleExpand = function () {
+
+  	if (this.domNode.getAttribute('aria-expanded') === 'true') {
+    	this.domNode.setAttribute('aria-expanded', 'false');
+    	this.hideContent();
+  	}
+  	else {
+    	this.domNode.setAttribute('aria-expanded', 'true');
+    	this.showContent();
+ 	 }
+
+	};
+
+	ButtonExpand.prototype.handleKeydown = function (event) {
+
+  		console.log('[keydown]');
+
+  		switch (event.keyCode) {
+
+    	case this.keyCode.RETURN:
+
+      	this.toggleExpand();
+
+      	event.stopPropagation();
+      	event.preventDefault();
+      	break;
+
+    default:
+      break;
+  }
+
+};
+
+ButtonExpand.prototype.handleClick = function (event) {
+  this.toggleExpand();
+};
+
+ButtonExpand.prototype.handleFocus = function (event) {
+  this.domNode.classList.add('focus');
+};
+
+ButtonExpand.prototype.handleBlur = function (event) {
+  this.domNode.classList.remove('focus');
+};
+
+window.addEventListener('load', function (event) {
+
+  var buttons =  document.querySelectorAll('button[aria-expanded][aria-controls]');
+
+  for (var i = 0; i < buttons.length; i++) {
+    var be = new ButtonExpand(buttons[i]);
+    be.init();
+  }
+
+}, false);
+</script>
+<dl class="faq">
+  <dt>
+    <button aria-expanded="false" aria-controls="faq1_desc">
+      When will AP EAMCET 2021 result be declared?
+    </button>
+  </dt>
+  <dd>
+    <p id="faq1_desc" class="desc">
+		<i>AP EAMCET result 2021 will tentatively be released in the first week of May, 2021. Candidates can check their result online @sche.ap.gov by entering their Hall Ticket Number and selecting the exam group.</i>
+    </p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq2_desc">
+      How can I check my AP EAMCET result?
+    </button>
+  </dt>
+  <dd>
+    <p id="faq2_desc" class="desc">
+		<i>You will need to access the official website of AP EAMCET ( www.sche.ap.gov.in/eamcet) for checking your AP EAMCET result 2021.</i>
+    </p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq3_desc">
+      What information is required for accessing AP EAMCET results?
+    </button>
+  </dt>
+	</br>
+  <dd>
+    <p id="faq3_desc" class="desc">
+		<i>You will need to provide your user Id and password (generated while submitting your AP EAMCET online application form) for accessing the results.</i>
+    </p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq4_desc">
+      Can I download a copy of my AP EAMCET 2021 result?
+    </button>
+  </dt>
+  <dd>
+    <p id="faq4_desc" class="desc">
+		<i>Yes, you will be able to download a PDF copy of the AP EAMCET 2021 result, apart from taking a printout.</i>
+    </p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq5_desc">
+      How will I be able to access my AP EAMCET 2021 result/ scorecard in case I have forgotten my AP EAMCET password?
+    </button>
+  </dt>
+  <dd>
+    <p id="faq5_desc" class="desc">
+		<i>You can click the ‘Forgot Password’ link on the AP EAMCET Login screen, reset your password, and then access your AP EAMCET 2021 result.</i>
+    </p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq6_desc">
+      On what factors are AP EAMCET marks normalized?
+    </button>
+  </dt>
+  <dd>
+    <p id="faq6_desc" class="desc">
+		<i>The AP EAMCET marks are normalized on three factors - mean marks (m), standard deviation (s) and raw marks (r).</i>
+	</p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq7_desc">
+		Is the result for AP EAMCET MAB Exam also sent physically at the postal address of the qualified candidates?
+    </button>
+  </dt>
+  <dd>
+    <p id="faq7_desc" class="desc">
+		<i>No, you can check it only on the official website.</i>
+	</p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq8_desc">
+		Where is AP EAMCET mark sheet used?
+    </button>
+  </dt>
+  <dd>
+    <p id="faq8_desc" class="desc">
+		<i>You will need to show your AP EAMCET mark sheet at the time of admission.</i>
+	</p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq9_desc">
+		Where are AP EAMCET results used?
+	</button>
+  </dt>
+  <dd>
+    <p id="faq9_desc" class="desc">
+		<i>You may use your AP EAMCET scores for getting admissions to various courses available at the engineering institutes of Andhra Pradesh.</i>
+	</p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq10_desc">
+		The system is not accepting my credentials while accessing AP EAMCET results. What should I do?
+	</button>
+  </dt>
+  <dd>
+    <p id="faq10_desc" class="desc">
+		<i> You may simply reset your AP EAMCET password by clicking the ‘Forgot Password’ link on the AP EAMCET Login screen, and then access your results.</i>
+	</p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq11_desc">
+		 I am not able to open the official website for accessing AP EAMCET results. What should I do?
+	</button>
+  </dt>
+  <dd>
+    <p id="faq11_desc" class="desc">
+		<i> You should check your internet connectivity, try using some other browser, or clear cookies and history and try again. If none of that works, contact AP EAMCET officials.</i>
+	</p>
+  </dd>
+	</br>
+  <dt>
+    <button aria-expanded="false" aria-controls="faq12_desc">
+		How many courses are offered in AP EAMCET? Will the merit list be prepared separately for each of the courses?
+	</button>
+  </dt>
+  <dd>
+    <p id="faq12_desc" class="desc">
+		<i> In AP EAMCET, there are three streams Engineering, Pharmacy and Agriculture. Yes, merit list of AP EAMCET is prepared separately. </i>
+	</p>
+  </dd>
+	</br>
+	</br>
+
+
+</dl>
+
+
+{% endblock %}

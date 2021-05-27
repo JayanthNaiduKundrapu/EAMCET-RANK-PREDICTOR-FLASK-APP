@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<title>
+            {% block title %}
+
+            {% endblock %}
+
+
+        </title>
+		<style>
+			::-webkit-scrollbar { width: 10px;
+					}
+			::-webkit-scrollbar-track {
+  				background: #f1f1f1;
+					}
+			::-webkit-scrollbar-thumb {
+  				background: #888;
+					}
+			::-webkit-scrollbar-thumb:hover {
+  				background: #555;
+					}
+
+			#link {
+				position  : right;
+				text-decoration:none;
+				color : #FFFFFF;
+				font-size:20px;
+
+			}
+			#head {
+				background-color:#663300;
+			}
+			#link : hover {
+				color : #A0A0A0;
+				background-color : #FOFOFO;
+				border-radius : 30px;
+			}
+			header {
+				word-spacing : 40px;
+			}
+			table {
+
+				height: 400px;
+				padding : 50px;
+				margin : auto;
+
+			}
+			body {
+				background-image:url("https://i.cdn.newsbytesapp.com/images/l131_11361512478864.jpg");
+				background-repeat : no-repeat;
+				background-size:cover;
+			}
+			#ip {
+				font-size : 20px;
+			}
+			#field,#field1 {
+				font-size : 15px;
+				background-color : transparent;
+				border : 2px solid black;
+				height : 30px;
+			}
+			#field1 {
+				width : 180px;
+			}
+			#b {
+				font-size: 22px;
+				background-color : transparent;
+				display : block;
+				margin : 0 auto;
+				color : #660000;
+				padding : 10px 15px;
+				border : 2px solid ;
+				border-color : #FFCCCC;
+			}
+			#b:hover {
+				font-size : 25px;
+				opacity : 1.5;
+				background-color : #FFCCCC;
+
+			}
+			marquee {
+				font-size : 20px;
+				font-family : Verdana;
+			}
+		</style>
+	</head>
+	<body>
+		<header id = "head">
+			<a id = "link" href = "{{url_for('home_page')}}" >Home</a>
+			<a id = "link" href = "{{url_for('about_page')}}" >About</a>
+			<a id = "link" href = "{{url_for('help_page')}}" >Help</a>
+			<a id = "link" href = "{{url_for('faqs_page')}}" >FAQs</a>
+			<a id = "link" href = "{{url_for('contactus_page')}}" >ContactUs</a>
+		</header>
+		<marquee><i>We help you find the best college</i></marquee>
+		<center>
+			{% block content %}
+
+            {% endblock %}
+		</center>
+	</body>
+</html>
+

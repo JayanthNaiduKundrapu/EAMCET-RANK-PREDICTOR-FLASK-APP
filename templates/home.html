@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+	Home Page
+{% endblock %}
+
+{% block content %}
+	</br>
+	<h3><strong><i>AP EAMCET RANK PREDICTOR 2021</i	></strong></h3>
+	<h1>
+			<form action = "{{ url_for('result_page') }}" method = "POST" >
+				<table>
+				<tr>
+					<td id = "ip" >Rank</td>
+					<td><input type = "number" id = "field1" name = "rank" placeholder = "Enter your EAMCET rank" min = "1" max = "150000" required>
+				</tr>
+				<tr>
+					<td id = "ip">Gender</td>
+					<td id = "ip"><input  type = "radio" name = "gender" value = "Male" required>Male</input>
+					<input  type = "radio" name = "gender" value = "Female" >Female</input>
+					</td>
+				</tr>
+				<tr>
+					<td id = "ip">Category</td>
+					<td><select id = "field" name = "caste" required>
+						<option value = "" hidden>--Select your Category--</option>
+						<option value = "SC">SC</option>
+						<option value = "ST">ST</option>
+						<option value = "BCA">BCA</option>
+						<option value = "BCB">BCB</option>
+						<option value = "BCC">BCC</option>
+						<option value = "BCD">BCD</option>
+						<option value = "BCE">BCE</option>
+						<option value = "OC">OC</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td id = "ip">Branch</td>
+					<td><select id = "field" name = "branch" required>
+						<option value = "" hidden>----Choose your Branch----</option>
+						<option value = "CIV">Civil Engineering(CIV)</option>
+						<option value = "CSE">Computer Science and Engineering(CSE)</option>
+						<option value = "ECE">Electronics and Communication Engineering(ECE)</option>
+						<option value = "EEE">Electrical and Electronics Engineering(EEE)</option>
+						<option value = "MEC">Mechanical Engineering(MEC)</option>
+						<option value = "INF">Information Technology(IT)</option>
+						<option value = "CHE">Chemical Engineering(CHEM)</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><input id = "b" type = "submit" value = "Submit"></td>
+				</tr>
+				</table>
+			</form>
+
+{% endblock %}
